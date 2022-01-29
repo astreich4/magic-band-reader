@@ -24,10 +24,9 @@ def run():
 			pixels[(x+5)%20] = (0,255,0)
 	pixels.fill((0, 255, 0))
 	time.sleep(2)
-	while time.time() < t_end:
-		for x in range(0,20):
-			time.sleep(0.05)
-			pixels[x] = (0,0,0)
+	for x in range(0,20):
+		time.sleep(0.05)
+		pixels[x] = (0,0,0)
 	pixels.fill((0, 0, 0))
 
 try:
