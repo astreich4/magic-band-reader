@@ -17,3 +17,4 @@ Be aware that the RFID RC522 is coming from AliExpress and it is not express, wi
 
 ## Part 3 -- Wiring it up
 Follow the diagram below:
+![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/wiringDiagram.png)
