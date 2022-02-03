@@ -18,3 +18,93 @@ Be aware that the RFID RC522 is coming from AliExpress and it is not express, wi
 ## Part 3 -- Wiring it up
 Follow the diagram below:
 ![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/wiringDiagram.png)
+Or if you like pictures more follow these pictures:
+(Note: You cannot connect the led DIN wire to GPIO18, it will not work even though thats what the Adafruit guide says to do...)
+![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/RC522_Wiring.png)
+![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/NeoPixel_Wiring.png)
+
+## Part4 -- Code
+Once you have everything wired up, its time to test that everything works correctly.  
+Note you will need to connect your pi to the internet to complete this.
+
+#### RC522
+The link for the guide that I followed is [here](https://pimylifeup.com/raspberry-pi-rfid-rc522/), but I will also go over all the steps.
+1. Make sure that you enable the SPI interface (default is disabled) Run the below command and navigate to turn it on.
+```
+sudo raspi-config
+```
+2. Once this is done, reboot the Pi.
+```
+sudo reboot
+```
+3. Run the below command and if you see spi_bcm2835 then you are good, otherwise refer to the above guide.
+```
+lsmod | grep spi
+```
+4. Make sure the Pi is up to date.
+```
+sudo apt update
+sudo apt upgrade
+```
+5. Now install python3 and pip.
+```
+sudo apt install python3-dev python3-pip
+```
+6. The library to interact with the device is the spidev library. Install by running:
+```
+sudo pip3 install spidev
+```
+7. Also needed is the MFRC522 library
+```
+sudo pip3 install mfrc522
+```
+8. Once this is done you can run the file `rfidtest.py` located in the code directory.
+```
+sudo python3 rfidtest.py
+```
+The program now waits for you to place your card on the scanner, once you do this you should see some numbers print on the screen and the program finish. If not review the above steps and try again.
+
+#### LED
+The guide that I used is located [here](https://learn.adafruit.com/neopixels-on-raspberry-pi/python-usage), but again I will cover the important steps.  
+NOTE: This guide assumes your LED strip has 30 LEDs if it has more or less you will need to change the code.
+1. Assuming you ar following this in order you should have pip3 installed, so run the bellow commands:
+```
+sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+
+sudo python3 -m pip install --force-reinstall adafruit-blinka
+```
+2. Now you can run the `ledtest.py` file located in the code directory:
+```
+sudo python3 ledtest.py
+```
+This should turn the whole LED strip green for 5 seconds then turn it off. If this does not work, repeat the steps or refer to the linked guide.
+
+#### Combined Testing
+1. Run the `combinedtest.py` file in the code directory
+```
+sudo python3 combinetest.py
+```
+The program will now wait for you to scan your RFID tag, then light up green for 3 seconds, then turn off.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
