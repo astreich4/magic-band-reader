@@ -19,11 +19,11 @@ Be aware that the RFID RC522 is coming from AliExpress and it is not express, wi
 Follow the diagram below:
 ![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/wiringDiagram.png)
 Or if you like pictures more follow these pictures:
-(Note: You cannot connect the led DIN wire to GPIO18, it will not work even though thats what the Adafruit guide says to do...)
+(Note: You cannot connect the led DIN wire to GPIO18, it will not work even though thats what the Adafruit guide says to do... Hence my drawn in connection, which is correct.)
 ![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/RC522_Wiring.png)
 ![image](https://github.com/astreich4/magic-band-reader/blob/main/Wiring/NeoPixel_Wiring.png)
 
-## Part4 -- Code
+## Part 4 -- Code
 Once you have everything wired up, its time to test that everything works correctly.  
 Note you will need to connect your pi to the internet to complete this.
 
